@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Don Pepe | 25 Años de Tradición Artesanal</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-principal: #C40C0C;
+            --color-secundario: #CC561E;
+            --color-acento: #FF6500;
+            --color-fondo: #F6CE71;
+            --color-texto: #2D2D2D;
+            --color-blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-texto);
+            background-color: var(--color-blanco);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
+        }
+
+        /* --- Navegación --- */
+        nav {
+            background-color: var(--color-blanco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--color-principal);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--color-secundario);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-principal);
+        }
+
+        /* --- Sección Inicio --- */
+        #inicio {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--color-blanco);
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .btn-cta {
+            background-color: var(--color-principal);
+            color: var(--color-blanco);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-acento);
+            transform: translateY(-3px);
+        }
+
+        /* --- Secciones Generales --- */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--color-principal);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--color-secundario);
+            font-weight: 600;
+        }
+
+        /* --- Sección Productos --- */
+        #productos {
+            background-color: var(--color-fondo);
+            max-width: 100%;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--color-blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .card-body h3 {
+            font-size: 2rem;
+            color: var(--color-secundario);
+            margin-bottom: 10px;
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .precio {
+            font-size: 1.5rem;
+            color: var(--color-principal);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Sección Reseñas --- */
+        .reseñas-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resena-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--color-acento);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .resena-item p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .resena-item .autor {
+            font-weight: bold;
+            color: var(--color-principal);
+        }
+
+        /* --- Sección Contacto --- */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .info-contacto h3 {
+            font-size: 2.5rem;
+            color: var(--color-secundario);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item b {
+            color: var(--color-principal);
+        }
+
+        .mapa {
+            width: 100%;
+            height: 350px;
+            background-color: #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid var(--color-fondo);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-texto);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* --- Media Queries --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplificado para el ejemplo móvil */
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <a href="#inicio" class="logo">DON <span>PEPE</span></a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Elige tu Pizza</a></li>
+            <li><a href="#reseñas">Reseñas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Portada -->
+    <section id="inicio">
+        <div class="hero-content">
+            <h1>PIZZA DON PEPE</h1>
+            <p>25 años horneando la tradición</p>
+            <a href="#productos" class="btn-cta">Ver el Menú</a>
+        </div>
+    </section>
+
+    <!-- Menú / Elige tu Pizza -->
+    <section id="productos">
+        <div class="section-header">
+            <h2>Elige tu Pizza</h2>
+            <p>Ingredientes frescos seleccionados a mano cada mañana</p>
+        </div>
+        <div class="grid-productos">
+            <!-- Producto 1 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981&auto=format&fit=crop');"></div>
+                <div class="card-body">
+                    <h3>La Especial Don Pepe</h3>
+                    <p>Masa madurada 48h, salsa de tomate artesanal, mozzarella premium, jamón serrano y rúcula fresca.</p>
+                    <span class="precio">$15.50</span>
+                    <a href="#contacto" class="btn-cta" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Ordenar</a>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1593504049359-74330189a345?q=80&w=1854&auto=format&fit=crop');"></div>
+                <div class="card-body">
+                    <h3>Pepperoni Supremo</h3>
+                    <p>Nuestra clásica con doble ración de pepperoni italiano crujiente y una mezcla de tres quesos.</p>
+                    <span class="precio">$13.90</span>
+                    <a href="#contacto" class="btn-cta" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Ordenar</a>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbad80ad38?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="card-body">
+                    <h3>Vegetariana del Huerto</h3>
+                    <p>Pimientos asados, aceitunas negras, cebolla morada, champiñones frescos y aceite de oliva.</p>
+                    <span class="precio">$12.50</span>
+                    <a href="#contacto" class="btn-cta" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Ordenar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section id="reseñas">
+        <div class="section-header">
+            <h2>Lo que dicen nuestros amigos</h2>
+            <p>Más que clientes, somos una familia desde 1999</p>
+        </div>
+        <div class="reseñas-container">
+            <div class="resena-item">
+                <p>"La mejor pizza de la ciudad sin duda. Llevo viniendo con mis padres desde que era pequeño y el sabor sigue siendo el mismo: espectacular."</p>
+                <span class="autor">- Ricardo Sánchez</span>
+            </div>
+            <div class="resena-item">
+                <p>"Se nota el cariño en la masa y la calidad de los ingredientes. La atención de Don Pepe te hace sentir como en casa."</p>
+                <span class="autor">- María G. Rodríguez</span>
+            </div>
+            <div class="resena-item">
+                <p>"25 años no se cumplen por suerte. La consistencia y el sabor artesanal son de otro nivel. ¡La Especial es obligatoria!"</p>
+                <span class="autor">- Carlos Torres</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto y Ubicación -->
+    <section id="contacto">
+        <div class="contacto-grid">
+            <div class="info-contacto">
+                <h3>Visítanos o Pide a domicilio</h3>
+                <div class="info-item">
+                    <span>📍</span>
+                    <p><b>Dirección:</b><br>Calle de la Tradición #123, Barrio Antiguo, Ciudad Sabor.</p>
+                </div>
+                <div class="info-item">
+                    <span>📞</span>
+                    <p><b>Teléfono:</b><br>(+55) 123 456 789</p>
+                </div>
+                <div class="info-item">
+                    <span>⏰</span>
+                    <p><b>Horario:</b><br>Martes a Domingo: 18:00 - 23:30</p>
+                </div>
+            </div>
+            <div class="mapa">
+                <div style="text-align: center;">
+                    <p style="color: #888; margin-bottom: 10px;">[ Image of Mapa de Ubicación Google Maps ]</p>
+                    <p style="font-weight: bold; color: var(--color-secundario);">Pizza Don Pepe S.A.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pizza Don Pepe. Horneando felicidad desde hace 25 años.</p>
+    </footer>
+
+</body>
+</html>
